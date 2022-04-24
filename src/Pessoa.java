@@ -7,9 +7,11 @@ public class Pessoa {
     private int idade;
     private String rg;
     private String telefone;
+    private BancoPessoas conn;
 
 
-    public Pessoa() {
+    public Pessoa(BancoPessoas db) {
+        this.conn = db;
         this.nome = geraNome();
         this.apelido = geraApelido(nome);
         this.cpf = geraCpf();
@@ -18,6 +20,35 @@ public class Pessoa {
         this.telefone = geraTelefone();
     }
 
+    //-------------------------------------------------
+    public String getNome() {
+        return nome;
+    }
+
+    public String getApelido() {
+        return apelido;
+    }
+
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+
+    public String getRg() {
+        return rg;
+    }
+
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    //-------------------------------------------------
 
     /**
      * Gerador de nome completo aleatorio
@@ -47,6 +78,8 @@ public class Pessoa {
         return nome;
     }
 
+    
+
     /**
      * Gerador de apelido aleatorio
      */
@@ -54,7 +87,21 @@ public class Pessoa {
     public String geraApelido(String nome) {
 
         String apelido = nome.substring(0, 3);
-        return apelido;
+        
+        
+            int cont = 0;
+
+            if(this.conn.existeApelido(apelido)){
+                String tempNick = apelido + Integer.toString(cont);
+                while(this.conn.existeApelido(tempNick)){
+                    tempNick = apelido;
+                    cont++;
+                    tempNick = apelido + Integer.toString(cont);
+                }
+                apelido = tempNick;
+            }
+
+            return apelido;
     }
 
     /**
