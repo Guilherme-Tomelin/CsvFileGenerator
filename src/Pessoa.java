@@ -58,7 +58,7 @@ public class Pessoa {
 
         String[] nomes = { "Guilherme", "Bruno", "Gabriel", "João", "Pedro", "Amanda", "Letícia", "Rafaela", "Rafael",
                 "John", "Márcio", "Bruna", "Gabriela", "Maria", "Juliana", "Juliano", "Henrique", "Miguel", "Laura",
-                "Mariana", "Clarissa" };
+                "Mariana", "Clarissa", "Paola", "Erick", "Lucas","Fernando", "Eduardo", "Nélio", "Thiago", "Aline","Sérgio" };
         String[] sobrenomes = { "Silva", "Bueno", "Magni", "Araujo", "Luigi", "Telis", "Machado", "Oliveira", "Costa",
                 "Lima", "Tomelin", "Ferreira", "Souza", "Carvalho", "Rodrigues", "Gomes", " Souza", "Martins",
                 "Gonzalez", "Rocha", "Barbosa", "Ribeiro", "Alvez" };
@@ -215,14 +215,20 @@ public class Pessoa {
      }
 
 
+     /*
      @Override
      public String toString() {
-         return "-------------------------"+"\n"+
+         return 
                 "Nome: "+ this.nome + "\n"+
                 "Apelido: "+ this.apelido + "\n"+
                 "Cpf: "+ this.cpf + "\n"+
                 "Idade: "+ this.idade + "\n"+
                 "Rg: "+ this.rg+ "\n"+
                 "Telefone: "+ this.telefone;
+     }
+     */
+    @Override
+     public String toString() {
+         return this.nome +";"+ this.apelido +";"+ this.cpf +";"+ this.idade +";"+ this.rg +";"+ this.telefone;
      }
 }
